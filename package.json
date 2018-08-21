@@ -1,0 +1,27 @@
+{
+  "name": "js_project",
+  "version": "1.0.0",
+  "description": "(WORKING TITLE) is a simulation of moving particles colliding in a confined space. A certain number of particles are \"infected\". Each time a collision occurs with an \"infected\" particle, that particle also becomes infected, thus spreading the infection at an accelerated rate.",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "webpack": "^4.16.5",
+    "webpack-cli": "^3.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch --mode=development",
+    "postinstall": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stevielum1/aA_JS_Project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stevielum1/aA_JS_Project/issues"
+  },
+  "homepage": "https://github.com/stevielum1/aA_JS_Project#readme"
+}

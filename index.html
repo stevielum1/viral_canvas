@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>test</title>
+    <script type="text/javascript" src="./js/paper-full.js"></script>
+    <script type="text/javascript" src="./js/bundle.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+  <script>
+    paper.install(window);
+  </script>
+  <body>
+    <div class="settings">
+      <div class="sliders">
+        <label>Width
+          <input id="width" type="text" value="700" placeholder="100-1300"/>
+        </label>
+        <label>Height
+          <input id="height" type="text" value="400" placeholder="100-700"/>
+        </label>
+        <label>Num Circles
+          <input id="numCircles" type="text" value="100" placeholder="1-1000"/>
+        </label>
+        <label>Radius
+          <input id="radius" type="text" value="10" placeholder="1-20"/>
+        </label>
+        <label>Speed
+          <input id="speed" type="text" value="10" placeholder="1-200"/>
+        </label>
+        <label>End Circles
+          <input id="endCircles" type="text" value="1" placeholder="1-Num Circles"/>
+        </label>
+      </div>
+      <div class="colors">
+        <label>Start Color
+          <input id="start-color" type="color" value="#ff0000" />
+        </label>
+        <label>End Color
+          <input id="end-color" type="color" value="#0000ff" />
+        </label>
+        <label>Background
+          <input id="background-color" type="color" value="#ffffff" />
+        </label>
+      </div>
+      <div class="display">
+        <h2 id="start-circles-left"></h2>
+        <h2 id="end-circles-left"></h2>
+        <h2 id="timer"></h2>
+      </div>
+    </div>
+    <button id="restart-button">Restart Simulation</button>
+    <canvas id="myCanvas" width="700" height="400" hidipi="off"></canvas>
+  </body>
+</html>
