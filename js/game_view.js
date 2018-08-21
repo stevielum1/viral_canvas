@@ -24,6 +24,13 @@ class GameView {
   }
 
   createCircles() {
+    // const display = document.querySelector(".display");
+    // display.removeChild(display.lastChild);
+    //
+    // const ul = document.createElement("ul");
+    // ul.id = "test";
+    // display.appendChild(ul);
+
     for (let i = 0; i < this.numCircles; i++) {
       let centerX = Point.random().x * (view.size.width - 2 * this.radius) + this.radius;
       let centerY = Point.random().y * (view.size.height - 2 * this.radius) + this.radius;
@@ -32,6 +39,11 @@ class GameView {
       circle.fillColor = this.startColor;
       circle.direction = new Point(this.speed, this.speed);
       circle.direction.angle = Math.random() * 360;
+
+      // const li = document.createElement("li");
+      // li.style = `color: ${circle.fillColor.toCSS()}`;
+      // li.id = circle.id;
+      // ul.appendChild(li);
     }
 
     for (let i = 0; i < this.numEndCircles; i++) {
@@ -103,6 +115,9 @@ class GameView {
   }
 
   updateDisplay(numStart, numEnd) {
+    // project.activeLayer.children.forEach(child => {
+    //   document.getElementById(child.id).style = `color: ${child.fillColor.toCSS()}`;
+    // });
     const numStartLeft = document.getElementById("start-circles-left");
     const numEndLeft = document.getElementById("end-circles-left");
     const timer = document.getElementById("timer");
