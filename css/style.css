@@ -40,6 +40,7 @@ canvas[resize] {
 
 .settings {
   display: flex;
+  justify-content: space-between;
 }
 
 .sliders, .colors, .display {
@@ -51,6 +52,25 @@ canvas[resize] {
 
 .display {
   min-width: 100px;
+}
+
+.links {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: inherit;
+}
+
+i {
+  font-size: 60px;
+  padding: 10px;
+}
+
+i:hover {
+  cursor: pointer;
+  color: rgba(0,0,0,0.5);
 }
 
 #test {
