@@ -83,9 +83,9 @@ class GameView {
   checkCollision(start, end) {
     const xDist = start.position.x - end.position.x;
     const yDist = start.position.y - end.position.y;
-    const distance = Math.sqrt(Math.pow(xDist, 2) + Math.pow(yDist, 2));
+    const dist = (xDist * xDist) + (yDist * yDist);
 
-    if (distance <= this.radius * 2) {
+    if (dist <= (2 * this.radius) * (2 * this.radius)) {
       start.fillColor = this.endColor;
     }
   }
