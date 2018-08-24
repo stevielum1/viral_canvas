@@ -111,13 +111,16 @@ const bindControls = () => {
     const width = document.getElementById("width").value;
     const height = document.getElementById("height").value;
     const bgColor = document.getElementById("background-color").value;
+    const bgOpacity = document.getElementById("background-opacity").value;
 
     const canvas = document.createElement("canvas");
     canvas.id = "myCanvas";
     canvas.width = width;
     canvas.height = height;
-    canvas.hidipi = "off";
-    canvas.style = `background: ${bgColor}`;
+
+    const rgb = getRGB(bgColor);
+
+    canvas.style = `background: rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${bgOpacity}`;
 
     document.querySelector("body").appendChild(canvas);
 
@@ -151,6 +154,14 @@ const bindControls = () => {
 
   gameView = new GameView({});
   gameView.start();
+};
+
+const getRGB = hex => {
+  const colors = [];
+  colors.push(parseInt(hex.substr(1,2), 16));
+  colors.push(parseInt(hex.substr(3,2), 16));
+  colors.push(parseInt(hex.substr(5,2), 16));
+  return colors;
 };
 
 module.exports = bindControls;

@@ -1,14 +1,20 @@
-html, body, h1, h2, h3, h4, h5, h6, div, p {
+html, body, h1, h2, h3, h4, h5, h6, div, p, input {
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
+  font-family: 'Baloo Bhai', cursive;
 }
 
 html, body {
   margin: 0;
   height: 100%;
   width: 100%;
+}
+
+html {
+  background: url("https://www.walldevil.com/wallpapers/a76/monster-energy-ipod-wallpaper-fullhd-high-wallpapers.jpg");
+  background-size: cover;
 }
 
 canvas[resize] {
@@ -20,7 +26,33 @@ canvas[resize] {
 #myCanvas {
   display: block;
   margin: 0 auto;
-  border: 1px solid black;
+  border: 3px solid white;
+}
+
+h1, label, input, #timer {
+  color: white;
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 15%;
+}
+
+h1 {
+  font-size: 48px;
+  text-align: center;
+}
+
+input[type="text"] {
+  padding: 0 5px;
+  border: 0;
+  background: rgba(255,255,255,0.3);
+}
+
+input[type="color"] {
+  background: transparent;
 }
 
 .playback-container {
@@ -40,7 +72,7 @@ canvas[resize] {
 
 .playback:hover {
   cursor: pointer;
-  background: rgba(0,0,0,0.1);
+  background: rgba(200,200,200,1);
 }
 
 .settings {
@@ -53,10 +85,12 @@ canvas[resize] {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  background: rgba(0,0,0,0.5);
+  height: 100%;
 }
 
 .display {
-  min-width: 100px;
+  min-width: 120px;
 }
 
 .links {
@@ -65,11 +99,11 @@ canvas[resize] {
 }
 
 a {
-  color: inherit;
+  color: white;
 }
 
 a:hover {
-  color: rgba(0,0,0,0.5);
+  color: rgba(200,200,200,1);
 }
 
 i {

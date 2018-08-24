@@ -1,6 +1,6 @@
-## Spreading Sim
+## Viral Canvas
 ### Background and Overview
-`Spreading Sim` is a simulation of moving particles colliding in a confined space. A certain number of particles are "infected". Each time a collision occurs with an "infected" particle, that particle also becomes infected, thus spreading the infection at an accelerated rate.
+`Viral Canvas` is a simulation of moving particles colliding in a confined space. A certain number of particles are "infected". Each time a collision occurs with an "infected" particle, that particle also becomes infected, thus spreading the infection at an accelerated rate.
 
 The total number of infected and non-infected particles will be displayed, as well as a timer that will stop when all particles become infected.
 
@@ -10,7 +10,7 @@ Users can also choose colors for the particles and the background.
 
 ### Functionality & MVP
 
-In Spreading Sim, users will be able to:
+In Viral Canvas, users will be able to:
 - [x] Choose the number of particles and tweak various properties of the particles, such as size, speed, and color
 - [x] Define the space of the simulation
 - [x] See live stats of the simulation
