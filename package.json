@@ -1,5 +1,5 @@
 {
-  "name": "js_project",
+  "name": "Spread_Sim",
   "version": "1.0.0",
   "description": "Spreading Sim is a simulation of moving particles colliding in a confined space. A certain number of particles are \"infected\". Each time a collision occurs with an \"infected\" particle, that particle also becomes infected, thus spreading the infection at an accelerated rate.",
   "main": "webpack.config.js",
