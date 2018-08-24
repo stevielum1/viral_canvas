@@ -1,6 +1,6 @@
-## (JS Project Title)
+## Spreading Sim
 ### Background and Overview
-(WORKING TITLE) is a simulation of moving particles colliding in a confined space. A certain number of particles are "infected". Each time a collision occurs with an "infected" particle, that particle also becomes infected, thus spreading the infection at an accelerated rate.
+`Spreading Sim` is a simulation of moving particles colliding in a confined space. A certain number of particles are "infected". Each time a collision occurs with an "infected" particle, that particle also becomes infected, thus spreading the infection at an accelerated rate.
 
 The total number of infected and non-infected particles will be displayed, as well as a timer that will stop when all particles become infected.
 
@@ -10,11 +10,11 @@ Users can also choose colors for the particles and the background.
 
 ### Functionality & MVP
 
-In (WORKING TITLE), users will be able to:
-- [ ] Choose the number of particles and tweak various properties of the particles, such as size, speed, and color
-- [ ] Define the space of the simulation
-- [ ] See live stats of the simulation
-- [ ] Start, pause, and restart the simulation
+In Spreading Sim, users will be able to:
+- [x] Choose the number of particles and tweak various properties of the particles, such as size, speed, and color
+- [x] Define the space of the simulation
+- [x] See live stats of the simulation
+- [x] Start, pause, and restart the simulation
 
 ### Wireframes
 
@@ -41,25 +41,25 @@ This project will be implemented with the following technologies:
 - [x] Play around and experiment with paper.js to get a feel for how it works
 
 **Day 1:** Setup `webpack` and `webpack.config.js`. Create basic entry file and skeleton of classes that I may need. Goals for the day:
-- [ ] Get `webpack` up and running
-- [ ] Determine what files I'll need (TA review please), and write basic logic of each.
+- [x] Get `webpack` up and running
+- [x] Determine what files I'll need, and write basic logic of each.
 
 **Day 2:** Create the basic simulation. Particles should spawn in random locations within the canvas, move in random directions, bounce off walls, and infect other particles. Goals for the day:
-- [ ] Particle spawning within the canvas in random locations
-- [ ] Particle movement in a random direction
-- [ ] Particles bouncing off walls
-- [ ] Particles infecting other particles
+- [x] Particle spawning within the canvas in random locations
+- [x] Particle movement in a random direction
+- [x] Particles bouncing off walls
+- [x] Particles infecting other particles
 
 **Day 3:** Settings and stats.
 Goals for the day:
-- [ ] Allow user to the change the settings of the simulation and be able to restart with their settings in place
-- [ ] Show count of non-infected and infected particles, along with the total time it took to infect all particles
+- [x] Allow user to the change the settings of the simulation and be able to restart with their settings in place
+- [x] Show count of non-infected and infected particles, along with the total time it took to infect all particles
 - [ ] Show live graph of rate of infection
 
 **Day 4:** Touching up. Adding GitHub and LinkedIn icons. Styling. Any user experience enhancements. Goals for the day:
-- [ ] Add links to GitHub and LinkedIn
-- [ ] Any styling improvements
-- [ ] Any user experience changes (for example, changing the settings to a modal or adding an about section)
+- [x] Add links to GitHub and LinkedIn
+- [x] Any styling improvements
+- [x] Any user experience changes (for example, changing the settings to a modal or adding an about section)
 
 ### Bonus Features
 - [ ] Users can spawn particles with their mouse, either by clicking or dragging
