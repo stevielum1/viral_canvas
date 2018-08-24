@@ -23,17 +23,22 @@ canvas[resize] {
   border: 1px solid black;
 }
 
-#restart-button {
+.playback-container {
+  display: flex;
+  justify-content: center;
+}
+
+.playback {
   display: block;
   font-size: 24px;
   outline: 0;
   border: 1px solid black;
   border-radius: 10px;
   background: white;
-  margin: 10px auto;
+  margin: 15px;
 }
 
-#restart-button:hover {
+.playback:hover {
   cursor: pointer;
   background: rgba(0,0,0,0.1);
 }
@@ -63,14 +68,13 @@ a {
   color: inherit;
 }
 
+a:hover {
+  color: rgba(0,0,0,0.5);
+}
+
 i {
   font-size: 60px;
   padding: 10px;
-}
-
-i:hover {
-  cursor: pointer;
-  color: rgba(0,0,0,0.5);
 }
 
 #test {

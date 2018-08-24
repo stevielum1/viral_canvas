@@ -3,6 +3,10 @@ const checks = require('./checks.js');
 
 const bindControls = () => {
   const restart = document.getElementById("restart-button");
+  const play = document.getElementById("play-button");
+  const pause = document.getElementById("pause-button");
+
+  let gameView;
 
   restart.addEventListener("click", e => {
     if (checks()) return;
@@ -38,9 +42,20 @@ const bindControls = () => {
       numEndCircles
     };
 
-    const gameView = new GameView(options);
+    gameView = new GameView(options);
     gameView.start();
   });
+
+  play.addEventListener("click", () => {
+    gameView.paused = false;
+  });
+
+  pause.addEventListener("click", () => {
+    gameView.paused = true;
+  });
+
+  gameView = new GameView({});
+  gameView.start();
 };
 
 module.exports = bindControls;

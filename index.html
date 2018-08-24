@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>test</title>
+    <title>infect</title>
     <script type="text/javascript" src="./js/paper-full.js"></script>
     <script type="text/javascript" src="./js/bundle.js"></script>
     <link rel="stylesheet" href="./css/style.css">
@@ -52,7 +52,7 @@
         </ul>
       </div>
       <div class="links">
-        <a href="https://github.com/stevielum1">
+        <a href="https://github.com/stevielum1/JS_Project">
           <i class="fab fa-github"></i>
         </a>
         <a href="https://www.linkedin.com/in/steven-lum-204868141/">
@@ -60,7 +60,11 @@
         </a>
       </div>
     </div>
-    <button id="restart-button">Restart Simulation</button>
+    <div class="playback-container">
+      <button class="playback" id="play-button"><i class="fas fa-play"></i></button>
+      <button class="playback" id="pause-button"><i class="fas fa-pause"></i></button>
+      <button class="playback" id="restart-button"><i class="fas fa-undo"></i></button>
+    </div>
     <canvas id="myCanvas" width="700" height="400" hidipi="off"></canvas>
   </body>
 </html>

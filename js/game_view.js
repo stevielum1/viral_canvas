@@ -15,6 +15,7 @@ class GameView {
     this.numEndCircles = parseInt(options.numEndCircles) || NUM_END_CIRCLES;
     this.speed = (parseInt(options.speed) || SPEED) / SPEED_SCALE;
     this.startTime = new Date().getTime();
+    this.paused = false;
   }
 
   start() {
@@ -24,13 +25,6 @@ class GameView {
   }
 
   createCircles() {
-    // const display = document.querySelector(".display");
-    // display.removeChild(display.lastChild);
-    //
-    // const ul = document.createElement("ul");
-    // ul.id = "test";
-    // display.appendChild(ul);
-
     for (let i = 0; i < this.numCircles; i++) {
       let centerX = Point.random().x * (view.size.width - 2 * this.radius) + this.radius;
       let centerY = Point.random().y * (view.size.height - 2 * this.radius) + this.radius;
@@ -39,11 +33,6 @@ class GameView {
       circle.fillColor = this.startColor;
       circle.direction = new Point(this.speed, this.speed);
       circle.direction.angle = Math.random() * 360;
-
-      // const li = document.createElement("li");
-      // li.style = `color: ${circle.fillColor.toCSS()}`;
-      // li.id = circle.id;
-      // ul.appendChild(li);
     }
 
     for (let i = 0; i < this.numEndCircles; i++) {
@@ -53,30 +42,33 @@ class GameView {
 
   animateCircles() {
     view.onFrame = () => {
-      const children = project.activeLayer.children;
-      for(let i = 0; i < children.length; i++) {
-        var child = children[i];
-        this.updatePosition(child);
-      }
-
-      const startCircles = [], endCircles = [];
-      children.forEach(circle => {
-        if (circle.fillColor.toString() === this.startColor.toString()) {
-          startCircles.push(circle);
-        } else {
-          endCircles.push(circle);
+      if (this.paused) {
+      } else {
+        const children = project.activeLayer.children;
+        for(let i = 0; i < children.length; i++) {
+          var child = children[i];
+          this.updatePosition(child);
         }
-      });
 
-      for(let i = 0; i < startCircles.length; i++) {
-        for(let j = 0; j < endCircles.length; j++) {
-          const startCircle = startCircles[i];
-          const endCircle = endCircles[j];
-          this.checkCollision(startCircle, endCircle);
+        const startCircles = [], endCircles = [];
+        children.forEach(circle => {
+          if (circle.fillColor.toString() === this.startColor.toString()) {
+            startCircles.push(circle);
+          } else {
+            endCircles.push(circle);
+          }
+        });
+
+        for(let i = 0; i < startCircles.length; i++) {
+          for(let j = 0; j < endCircles.length; j++) {
+            const startCircle = startCircles[i];
+            const endCircle = endCircles[j];
+            this.checkCollision(startCircle, endCircle);
+          }
         }
-      }
 
-      this.updateDisplay(startCircles.length, endCircles.length);
+        this.updateDisplay(startCircles.length, endCircles.length);
+      }
     };
   }
 
@@ -115,9 +107,6 @@ class GameView {
   }
 
   updateDisplay(numStart, numEnd) {
-    // project.activeLayer.children.forEach(child => {
-    //   document.getElementById(child.id).style = `color: ${child.fillColor.toCSS()}`;
-    // });
     const numStartLeft = document.getElementById("start-circles-left");
     const numEndLeft = document.getElementById("end-circles-left");
     const timer = document.getElementById("timer");
