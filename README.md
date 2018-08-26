@@ -9,7 +9,7 @@
 
 ### Architectures and Technologies
 
-This project will be implemented with the following technologies:
+This project is implemented with the following technologies:
 
 - Vanilla JavaScript for overall structure and game logic,
 - `HTML5 Canvas` for DOM manipulation and rendering,
