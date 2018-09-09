@@ -387,7 +387,7 @@ class GameView {
     numEndLeft.innerText = numEnd;
 
     if (numEnd < this.numCircles) {
-      timer.innerText = new Date().getTime() - this.startTime + "ms";
+      timer.innerText = ((new Date().getTime() - this.startTime) / 1000).toFixed(1) + " s";
     }
   }
 }
