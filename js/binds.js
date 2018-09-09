@@ -2,11 +2,23 @@ const GameView = require('./game_view.js');
 const checks = require('./checks.js');
 
 const bindControls = () => {
+  let gameView;
+
   const restart = document.getElementById("restart-button");
   const play = document.getElementById("play-button");
   const pause = document.getElementById("pause-button");
 
-  let gameView;
+  play.addEventListener("click", () => {
+    gameView.paused = false;
+    play.style.display = "none";
+    pause.style.display = "block";
+  });
+
+  pause.addEventListener("click", () => {
+    gameView.paused = true;
+    play.style.display = "block";
+    pause.style.display = "none";
+  });
 
   restart.addEventListener("click", e => {
     if (checks()) return;
@@ -49,18 +61,17 @@ const bindControls = () => {
     gameView.start();
   });
 
-  play.addEventListener("click", () => {
-    gameView.paused = false;
-    play.style.display = "none";
-    pause.style.display = "block";
+  const about = document.getElementById("about");
+  const modalBackground = document.getElementById("modal-background");
+  
+  about.addEventListener("click", e => {
+    modalBackground.style.display = "block";
   });
 
-  pause.addEventListener("click", () => {
-    gameView.paused = true;
-    play.style.display = "block";
-    pause.style.display = "none";
+  modalBackground.addEventListener("click", e => {
+    modalBackground.style.display = "none";
   });
-
+  
   gameView = new GameView({});
   gameView.start();
 };

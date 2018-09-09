@@ -120,11 +120,22 @@ i {
   padding: 10px;
 }
 
-#test {
-  display: flex;
-  flex-wrap: wrap;
+#modal-background {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 3;
+  height: 100%;
+  width: 100%;
 }
 
-#test li {
-  padding-left: 5px;
+#modal-content {
+  margin: 200px auto;
+  width: 30%;
+  z-index: 5;
+  background-color: white;
+  border-radius: 5px;
+  padding: 20px;
 }
