@@ -146,10 +146,14 @@ const bindControls = () => {
 
   play.addEventListener("click", () => {
     gameView.paused = false;
+    play.style.display = "none";
+    pause.style.display = "block";
   });
 
   pause.addEventListener("click", () => {
     gameView.paused = true;
+    play.style.display = "block";
+    pause.style.display = "none";
   });
 
   gameView = new GameView({});
