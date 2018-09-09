@@ -120,6 +120,22 @@ i {
   padding: 10px;
 }
 
+.about-container {
+  display: flex;
+  align-items: center;
+}
+
+#about {
+  font-size: 30px;
+  margin-left: 15px;
+  color: white;
+}
+
+#about:hover {
+  cursor: pointer;
+  color: rgba(200,200,200,1);
+}
+
 #modal-background {
   display: none;
   position: fixed;
@@ -134,7 +150,6 @@ i {
 #modal-content {
   margin: 200px auto;
   width: 30%;
-  z-index: 5;
   background-color: white;
   border-radius: 5px;
   padding: 20px;
