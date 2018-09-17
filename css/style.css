@@ -13,8 +13,7 @@ html, body {
 }
 
 html {
-  /* background: url("https://www.walldevil.com/wallpapers/a76/monster-energy-ipod-wallpaper-fullhd-high-wallpapers.jpg"); */
-  background-image: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("https://www.walldevil.com/wallpapers/a76/monster-energy-ipod-wallpaper-fullhd-high-wallpapers.jpg");
+  background-image: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("/docs/background.jpg");
   background-size: cover;
 }
 
