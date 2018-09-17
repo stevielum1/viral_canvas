@@ -25,8 +25,8 @@ const bindControls = () => {
 
     document.getElementById("myCanvas").remove();
 
-    const width = document.getElementById("width").value;
-    const height = document.getElementById("height").value;
+    const width = parseInt(document.getElementById("width").value);
+    const height = parseInt(document.getElementById("height").value);
     const bgColor = document.getElementById("background-color").value;
     const bgOpacity = document.getElementById("background-opacity").value;
 
@@ -41,10 +41,10 @@ const bindControls = () => {
 
     document.querySelector("body").appendChild(canvas);
 
-    const numCircles = document.getElementById("numCircles").value;
-    const radius = document.getElementById("radius").value;
-    const speed = document.getElementById("speed").value;
-    const numEndCircles = document.getElementById("endCircles").value;
+    const numCircles = parseInt(document.getElementById("numCircles").value);
+    const radius = parseInt(document.getElementById("radius").value);
+    const speed = parseInt(document.getElementById("speed").value);
+    const numEndCircles = parseInt(document.getElementById("endCircles").value);
     const startColor = document.getElementById("start-color").value;
     const endColor = document.getElementById("end-color").value;
 
@@ -54,9 +54,11 @@ const bindControls = () => {
       speed,
       startColor,
       endColor,
-      numEndCircles
+      numEndCircles,
+      width,
+      height
     };
-
+    gameView.stop();
     gameView = new GameView(options);
     gameView.start();
   });
