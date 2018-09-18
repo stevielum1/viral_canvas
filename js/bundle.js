@@ -206,17 +206,21 @@ const getRGB = hex => {
 
 const handleChange = el => {
   const startVal = el.value;
-  el.addEventListener("change", e => {
+  el.addEventListener("input", e => {
     setTimeout(() => {
       if (e.target.value !== startVal) {
         showPopup();
       }
-    }, 2000);
+    }, 1000);
   });
 };
 
 const showPopup = () => {
-  alert("SETTINGS CHANGED. RESTART TO APPLY SETTINGS");
+  const settingsChanged = document.getElementById("settings-changed");
+  settingsChanged.style.opacity = "1";
+  setTimeout(() => {
+    settingsChanged.style.opacity = "0";
+  }, 3000);
 };
 
 module.exports = bindControls;
