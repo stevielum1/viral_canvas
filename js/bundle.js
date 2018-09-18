@@ -115,15 +115,37 @@ const bindControls = () => {
     pause.style.display = "none";
   });
 
+  const widthEl = document.getElementById("width");
+  const heightEl = document.getElementById("height");
+  const bgColorEl = document.getElementById("background-color");
+  const bgOpacityEl = document.getElementById("background-opacity");
+  const numCirclesEl = document.getElementById("numCircles");
+  const radiusEl = document.getElementById("radius");
+  const speedEl = document.getElementById("speed");
+  const numEndCirclesEl = document.getElementById("endCircles");
+  const startColorEl = document.getElementById("start-color");
+  const endColorEl = document.getElementById("end-color");
+
+  handleChange(widthEl);
+  handleChange(heightEl);
+  handleChange(bgColorEl);
+  handleChange(bgOpacityEl);
+  handleChange(numCirclesEl);
+  handleChange(radiusEl);
+  handleChange(speedEl);
+  handleChange(numEndCirclesEl);
+  handleChange(startColorEl);
+  handleChange(endColorEl);
+
   restart.addEventListener("click", e => {
     if (checks()) return;
 
     document.getElementById("myCanvas").remove();
 
-    const width = parseInt(document.getElementById("width").value);
-    const height = parseInt(document.getElementById("height").value);
-    const bgColor = document.getElementById("background-color").value;
-    const bgOpacity = document.getElementById("background-opacity").value;
+    const width = parseInt(widthEl.value);
+    const height = parseInt(heightEl.value);
+    const bgColor = bgColorEl.value;
+    const bgOpacity = bgOpacityEl.value;
 
     const canvas = document.createElement("canvas");
     canvas.id = "myCanvas";
@@ -136,12 +158,12 @@ const bindControls = () => {
 
     document.querySelector("body").appendChild(canvas);
 
-    const numCircles = parseInt(document.getElementById("numCircles").value);
-    const radius = parseInt(document.getElementById("radius").value);
-    const speed = parseInt(document.getElementById("speed").value);
-    const numEndCircles = parseInt(document.getElementById("endCircles").value);
-    const startColor = document.getElementById("start-color").value;
-    const endColor = document.getElementById("end-color").value;
+    const numCircles = parseInt(numCirclesEl.value);
+    const radius = parseInt(radiusEl.value);
+    const speed = parseInt(speedEl.value);
+    const numEndCircles = parseInt(numEndCirclesEl.value);
+    const startColor = startColorEl.value;
+    const endColor = endColorEl.value;
 
     const options = {
       numCircles,
@@ -153,6 +175,7 @@ const bindControls = () => {
       width,
       height
     };
+
     gameView.stop();
     gameView = new GameView(options);
     gameView.start();
@@ -179,6 +202,21 @@ const getRGB = hex => {
   colors.push(parseInt(hex.substr(3,2), 16));
   colors.push(parseInt(hex.substr(5,2), 16));
   return colors;
+};
+
+const handleChange = el => {
+  const startVal = el.value;
+  el.addEventListener("change", e => {
+    setTimeout(() => {
+      if (e.target.value !== startVal) {
+        showPopup();
+      }
+    }, 2000);
+  });
+};
+
+const showPopup = () => {
+  alert("SETTINGS CHANGED. RESTART TO APPLY SETTINGS");
 };
 
 module.exports = bindControls;
