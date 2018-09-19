@@ -13,7 +13,7 @@ html, body {
 }
 
 html {
-  background-image: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("/docs/background.jpg");
+  background-image: radial-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url("/background.jpg");
   background-size: cover;
 }
 
