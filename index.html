@@ -25,6 +25,14 @@
   <body>
     <div class="title-container">
       <h1>Viral Canvas</h1>
+      <div>
+        <a href="https://github.com/stevielum1/viral_canvas">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/steven-lum-204868141/">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
     </div>
     <div class="settings-container">
       <div class="settings">
@@ -68,19 +76,6 @@
           <h2 id="timer"></h2>
         </div>
       </div>
-      <div class="links">
-        <a href="https://github.com/stevielum1/viral_canvas">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://www.linkedin.com/in/steven-lum-204868141/">
-          <i class="fab fa-linkedin"></i>
-        </a>
-      </div>
-    </div>
-    <div class="playback-container">
-      <button class="playback" id="play-button"><i class="fas fa-play"></i></button>
-      <button class="playback" id="pause-button"><i class="fas fa-pause"></i></button>
-      <button class="playback" id="restart-button"><i class="fas fa-undo"></i></button>
     </div>
     
     <div id="modal-background">
@@ -106,6 +101,13 @@
       <p>Settings changed! Restart to apply changes!</p>
     </div>
     
-    <canvas id="myCanvas" width="700" height="400"></canvas>
+    <div id="canvas-container">
+      <div class="playback-container">
+        <button class="playback" id="play-button"><i class="fas fa-play"></i></button>
+        <button class="playback" id="pause-button"><i class="fas fa-pause"></i></button>
+        <button class="playback" id="restart-button"><i class="fas fa-undo"></i></button>
+      </div>
+      <canvas id="myCanvas" width="700" height="400"></canvas>
+    </div>
   </body>
 </html>

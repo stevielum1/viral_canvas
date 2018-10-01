@@ -64,7 +64,7 @@ const bindControls = () => {
 
     canvas.style = `background: rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${bgOpacity}`;
 
-    document.querySelector("body").appendChild(canvas);
+    document.getElementById("canvas-container").appendChild(canvas);
 
     const numCircles = parseInt(numCirclesEl.value);
     const radius = parseInt(radiusEl.value);
