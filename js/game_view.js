@@ -71,10 +71,10 @@ class GameView {
         const cell = [];
         project.activeLayer.children.forEach(circle => {
           if (i * this.cellWidth < circle.position.x &&
-            circle.position.x <= (i+1) * this.cellWidth &&
-            j * this.cellHeight < circle.position.y &&
-            circle.position.y <= (j+1) * this.cellHeight) {
-              cell.push(circle);
+              circle.position.x <= (i+1) * this.cellWidth &&
+              j * this.cellHeight < circle.position.y &&
+              circle.position.y <= (j+1) * this.cellHeight) {
+                cell.push(circle);
               }
         });
         this.cells[`${i}-${j}`] = cell;
