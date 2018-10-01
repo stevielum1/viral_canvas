@@ -118,6 +118,13 @@ input[type="color"] {
   min-width: 120px;
 }
 
+.display-title {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: white;
+}
+
 a {
   color: white;
 }

@@ -555,13 +555,17 @@ class GameView {
   }
 
   updateDisplay(numStart, numEnd) {
+    const startTitle = document.getElementById("start-circles-left-title");
     const numStartLeft = document.getElementById("start-circles-left");
+    const endTitle = document.getElementById("end-circles-left-title");
     const numEndLeft = document.getElementById("end-circles-left");
     const timer = document.getElementById("timer");
 
+    startTitle.style = `color: ${this.startColor.toCSS()}`;
     numStartLeft.style = `color: ${this.startColor.toCSS()}`;
     numStartLeft.innerText = numStart;
 
+    endTitle.style = `color: ${this.endColor.toCSS()}`;
     numEndLeft.style = `color: ${this.endColor.toCSS()}`;
     numEndLeft.innerText = numEnd;
 
