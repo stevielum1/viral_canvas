@@ -26,6 +26,7 @@ canvas[resize] {
 #myCanvas {
   display: block;
   border: 3px solid white;
+  margin: 0 auto;
 }
 
 h1, label, input, #timer {
@@ -52,9 +53,14 @@ input[type="color"] {
   background: transparent;
 }
 
+.playback-wrapper {
+  margin: 0 auto;
+}
+
 .playback-container {
   display: flex;
   flex-direction: column;
+  margin-right: 25px;
 }
 
 .playback {
@@ -64,7 +70,7 @@ input[type="color"] {
   border: 1px solid black;
   border-radius: 10px;
   background: white;
-  margin: 25px 25px 0 0;
+  margin-top: 25px;
 }
 
 .playback:hover {
@@ -101,6 +107,7 @@ input[type="color"] {
   height: 100%;
   border: 1px solid white;
   box-sizing: border-box;
+  width: 33.33%;
 }
 
 .sliders, .colors {

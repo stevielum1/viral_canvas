@@ -136,7 +136,7 @@ const showPopup = () => {
 const blinkRestart = () => {
   blinkRestartClearInterval = setInterval(() => {
     const btn = document.getElementById("restart-button");
-    btn.style.background = btn.style.background === "white" ? "lightgrey" : "white";
+    btn.style.background = btn.style.background === "lightgrey" ? "white" : "lightgrey";
   }, 750);
 };
 
