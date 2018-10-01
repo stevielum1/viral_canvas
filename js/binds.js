@@ -85,6 +85,7 @@ const bindControls = () => {
     };
 
     didSettingsChange = false;
+    restart.style.background = "white";
     clearInterval(blinkRestartClearInterval);
 
     gameView.stop();
