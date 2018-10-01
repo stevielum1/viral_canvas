@@ -1,6 +1,9 @@
 const GameView = require('./game_view.js');
 const checks = require('./checks.js');
 
+let didSettingsChange = false;
+let blinkRestartClearInterval;
+
 const bindControls = () => {
   let gameView;
 
@@ -81,6 +84,9 @@ const bindControls = () => {
       height
     };
 
+    didSettingsChange = false;
+    clearInterval(blinkRestartClearInterval);
+
     gameView.stop();
     gameView = new GameView(options);
     gameView.start();
@@ -109,6 +115,10 @@ const handleChange = el => {
   el.addEventListener("input", e => {
     setTimeout(() => {
       if (e.target.value !== startVal) {
+        if (!didSettingsChange) {
+          blinkRestart();
+          didSettingsChange = true;
+        }
         showPopup();
       }
     }, 1000);
@@ -121,6 +131,13 @@ const showPopup = () => {
   setTimeout(() => {
     settingsChanged.style.opacity = "0";
   }, 3000);
+};
+
+const blinkRestart = () => {
+  blinkRestartClearInterval = setInterval(() => {
+    const btn = document.getElementById("restart-button");
+    btn.style.background = btn.style.background === "white" ? "lightgrey" : "white";
+  }, 750);
 };
 
 module.exports = bindControls;

@@ -96,6 +96,9 @@
 const GameView = __webpack_require__(/*! ./game_view.js */ "./js/game_view.js");
 const checks = __webpack_require__(/*! ./checks.js */ "./js/checks.js");
 
+let didSettingsChange = false;
+let blinkRestartClearInterval;
+
 const bindControls = () => {
   let gameView;
 
@@ -176,6 +179,9 @@ const bindControls = () => {
       height
     };
 
+    didSettingsChange = false;
+    clearInterval(blinkRestartClearInterval);
+
     gameView.stop();
     gameView = new GameView(options);
     gameView.start();
@@ -204,6 +210,10 @@ const handleChange = el => {
   el.addEventListener("input", e => {
     setTimeout(() => {
       if (e.target.value !== startVal) {
+        if (!didSettingsChange) {
+          blinkRestart();
+          didSettingsChange = true;
+        }
         showPopup();
       }
     }, 1000);
@@ -216,6 +226,13 @@ const showPopup = () => {
   setTimeout(() => {
     settingsChanged.style.opacity = "0";
   }, 3000);
+};
+
+const blinkRestart = () => {
+  blinkRestartClearInterval = setInterval(() => {
+    const btn = document.getElementById("restart-button");
+    btn.style.background = btn.style.background === "white" ? "lightgrey" : "white";
+  }, 750);
 };
 
 module.exports = bindControls;
@@ -379,10 +396,10 @@ class GameView {
         const cell = [];
         project.activeLayer.children.forEach(circle => {
           if (i * this.cellWidth < circle.position.x &&
-            circle.position.x <= (i+1) * this.cellWidth &&
-            j * this.cellHeight < circle.position.y &&
-            circle.position.y <= (j+1) * this.cellHeight) {
-              cell.push(circle);
+              circle.position.x <= (i+1) * this.cellWidth &&
+              j * this.cellHeight < circle.position.y &&
+              circle.position.y <= (j+1) * this.cellHeight) {
+                cell.push(circle);
               }
         });
         this.cells[`${i}-${j}`] = cell;
