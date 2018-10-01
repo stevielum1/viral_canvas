@@ -25,7 +25,7 @@ canvas[resize] {
 
 #myCanvas {
   display: block;
-  margin: 0 auto;
+  margin: 25px auto;
   border: 3px solid white;
 }
 
@@ -34,15 +34,11 @@ h1, label, input, #timer {
 }
 
 .title-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 15%;
+  margin: 0 25px;
 }
 
-h1 {
+.title-container > h1 {
   font-size: 48px;
-  text-align: center;
 }
 
 input[type="text"] {
@@ -57,7 +53,6 @@ input[type="color"] {
 
 .playback-container {
   display: flex;
-  justify-content: center;
 }
 
 .playback {
@@ -67,7 +62,7 @@ input[type="color"] {
   border: 1px solid black;
   border-radius: 10px;
   background: white;
-  margin: 15px;
+  margin: 25px;
 }
 
 .playback:hover {
@@ -83,9 +78,15 @@ input[type="color"] {
   display: block;
 }
 
-.settings {
+.settings-container {
   display: flex;
   justify-content: space-between;
+  margin: 0 25px;
+}
+
+.settings {
+  display: flex;
+  justify-content: space-around;
 }
 
 .sliders, .colors, .display {
@@ -95,6 +96,12 @@ input[type="color"] {
   align-items: flex-end;
   background: rgba(0,0,0,0.5);
   height: 100%;
+  border: 1px solid white;
+  box-sizing: border-box;
+}
+
+.colors, .display {
+  border-left: 0;
 }
 
 .display {
@@ -119,24 +126,13 @@ i {
   padding: 10px;
 }
 
-.about-container {
-  display: flex;
-  align-items: center;
-}
-
-#about {
-  font-size: 30px;
-  margin-left: 15px;
-  color: white;
-}
-
 #about:hover {
   cursor: pointer;
   color: rgba(200,200,200,1);
 }
 
 #modal-background {
-  display: none;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -147,10 +143,10 @@ i {
 }
 
 #modal-content {
-  margin: 200px auto;
-  width: 30%;
+  margin: 150px auto;
+  width: 50%;
   background-color: white;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 20px;
 }
 
@@ -158,12 +154,14 @@ i {
   opacity: 0;
   display: flex;
   justify-content: center;
+  position: fixed;
   transition: opacity 0.2s;
-  margin: 0 0 10px 0;
+  width: 100%;
 }
 
 #settings-changed > p {
-  background: rgba(255,255,255,0.5);
+  font-size: 24px;
+  background: rgba(255,255,255,0.8);
   border-radius: 5px;
   padding: 2px 10px;
 }

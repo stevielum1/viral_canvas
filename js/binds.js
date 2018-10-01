@@ -86,14 +86,9 @@ const bindControls = () => {
     gameView.start();
   });
 
-  const about = document.getElementById("about");
   const modalBackground = document.getElementById("modal-background");
-  
-  about.addEventListener("click", e => {
-    modalBackground.style.display = "block";
-  });
 
-  modalBackground.addEventListener("click", e => {
+  modalBackground.addEventListener("click", () => {
     modalBackground.style.display = "none";
   });
   

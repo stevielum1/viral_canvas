@@ -23,45 +23,50 @@
     paper.install(window);
   </script>
   <body>
-    <div class="settings">
-      <div class="sliders">
-        <label>Width
-          <input id="width" type="text" value="700" placeholder="100-1300"/>
-        </label>
-        <label>Height
-          <input id="height" type="text" value="400" placeholder="100-700"/>
-        </label>
-        <label>Num Circles
-          <input id="numCircles" type="text" value="100" placeholder="1-2500"/>
-        </label>
-        <label>Radius
-          <input id="radius" type="text" value="10" placeholder="1-20"/>
-        </label>
-        <label>Speed
-          <input id="speed" type="text" value="10" placeholder="1-200"/>
-        </label>
-        <label>End Circles
-          <input id="endCircles" type="text" value="1" placeholder="1-Num Circles"/>
-        </label>
-      </div>
-      <div class="colors">
-        <label>Start Color
-          <input id="start-color" type="color" value="#ff0000" />
-        </label>
-        <label>End Color
-          <input id="end-color" type="color" value="#0000ff" />
-        </label>
-        <label>Background Color
-          <input id="background-color" type="color" value="#ffffff" />
-        </label>
-        <label>Background Opacity
-          <input id="background-opacity" type="range" min="0" max ="1" step="0.1" value="0" />
-        </label>
-      </div>
-      <div class="display">
-        <h2 id="start-circles-left"></h2>
-        <h2 id="end-circles-left"></h2>
-        <h2 id="timer"></h2>
+    <div class="title-container">
+      <h1>Viral Canvas</h1>
+    </div>
+    <div class="settings-container">
+      <div class="settings">
+        <div class="sliders">
+          <label>Width
+            <input id="width" type="text" value="700" placeholder="100-1300"/>
+          </label>
+          <label>Height
+            <input id="height" type="text" value="400" placeholder="100-700"/>
+          </label>
+          <label>Num Circles
+            <input id="numCircles" type="text" value="100" placeholder="1-2500"/>
+          </label>
+          <label>Radius
+            <input id="radius" type="text" value="10" placeholder="1-20"/>
+          </label>
+          <label>Speed
+            <input id="speed" type="text" value="10" placeholder="1-200"/>
+          </label>
+          <label>End Circles
+            <input id="endCircles" type="text" value="1" placeholder="1-Num Circles"/>
+          </label>
+        </div>
+        <div class="colors">
+          <label>Start Color
+            <input id="start-color" type="color" value="#ff0000" />
+          </label>
+          <label>End Color
+            <input id="end-color" type="color" value="#0000ff" />
+          </label>
+          <label>Background Color
+            <input id="background-color" type="color" value="#ffffff" />
+          </label>
+          <label>Background Opacity
+            <input id="background-opacity" type="range" min="0" max ="1" step="0.1" value="0" />
+          </label>
+        </div>
+        <div class="display">
+          <h2 id="start-circles-left"></h2>
+          <h2 id="end-circles-left"></h2>
+          <h2 id="timer"></h2>
+        </div>
       </div>
       <div class="links">
         <a href="https://github.com/stevielum1/viral_canvas">
@@ -72,29 +77,33 @@
         </a>
       </div>
     </div>
-    <div class="title-container">
-      <div class="about-container">
-        <h1>Viral Canvas</h1>
-        <i id="about" class="fas fa-info-circle"></i>
-      </div>
-      <div class="playback-container">
-        <button class="playback" id="play-button"><i class="fas fa-play"></i></button>
-        <button class="playback" id="pause-button"><i class="fas fa-pause"></i></button>
-        <button class="playback" id="restart-button"><i class="fas fa-undo"></i></button>
-      </div>
+    <div class="playback-container">
+      <button class="playback" id="play-button"><i class="fas fa-play"></i></button>
+      <button class="playback" id="pause-button"><i class="fas fa-pause"></i></button>
+      <button class="playback" id="restart-button"><i class="fas fa-undo"></i></button>
     </div>
     
     <div id="modal-background">
       <div id="modal-content">
         <h2>Viral Canvas</h2>
         <p>
-          This is a small side project written in JavaScript using PaperJS. The goal is to simulate how quickly a virus spreads (in this case through direct contact).
+          This is a project written in JavaScript using PaperJS. The goal is to simulate how quickly a virus spreads (in this case through direct contact). It is intended to act as a sandbox simulation, so mess around with the settings, and remember to click the restart button to apply your changes!
         </p>
+        <br />
+        <h3>Limitations on Settings</h3>
+        <ul>
+          <li>Width: 100-1300</li>
+          <li>Height: 100-700</li>
+          <li>Num Circles: 1-2500</li>
+          <li>Radius: 1-20</li>
+          <li>Speed: 1-200</li>
+          <li>End Circles: 1-Num Circles</li>
+        </ul>
       </div>
     </div>
 
     <div id="settings-changed">
-      <p>Settings changed. Restart to apply changes.</p>
+      <p>Settings changed! Restart to apply changes!</p>
     </div>
     
     <canvas id="myCanvas" width="700" height="400"></canvas>
