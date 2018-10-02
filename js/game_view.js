@@ -50,15 +50,27 @@ class GameView {
       this.startCircles.push(circle);
     }
 
-    const children = project.activeLayer.children;
+    if (this.radius >= 5) {
+      let virus = new Raster("virus");
+      virus.size.width = this.radius*1.5;
+      virus.size.height = this.radius*1.5;
+  
+      this.sym = new Symbol(virus);
+      this.syms = [];
+    }
+
+    const children = this.getCircles();
 
     for (let i = 0; i < this.numEndCircles; i++) {
       children[i].fillColor = this.endColor;
       const idx = this.startCircles.indexOf(children[i]);
       this.startCircles.splice(idx, 1);
       this.endCircles.push(children[i]);
-    }
 
+      if (this.radius >= 5) {
+        this.syms.push(this.sym.place(children[i].position));
+      }
+    }
   }
   
   createCells() {
@@ -69,7 +81,7 @@ class GameView {
     for(let i = 0; i < this.width / this.cellWidth; i++) {
       for(let j = 0; j < this.height / this.cellHeight; j++) {
         const cell = [];
-        project.activeLayer.children.forEach(circle => {
+        this.getCircles().forEach(circle => {
           if (i * this.cellWidth < circle.position.x &&
               circle.position.x <= (i+1) * this.cellWidth &&
               j * this.cellHeight < circle.position.y &&
@@ -85,19 +97,17 @@ class GameView {
   animateCircles() {
     view.onFrame = () => {
       if (!this.paused) {
-        const children = project.activeLayer.children;
+        const children = this.getCircles();
         for(let i = 0; i < children.length; i++) {
           const child = children[i];
           this.updatePosition(child);
         }
 
-        // for(let i = 0; i < this.startCircles.length; i++) {
-        //   for(let j = 0; j < this.endCircles.length; j++) {
-        //     const startCircle = this.startCircles[i];
-        //     const endCircle = this.endCircles[j];
-        //     this.checkCollision(startCircle, endCircle);
-        //   }
-        // }
+        if (this.radius >= 5) {
+          for(let i = 0; i < this.endCircles.length; i++) {
+            this.updateSymPosition(i);
+          }
+        }
 
         children.forEach(circle => {
           const cellX = Math.floor(circle.position.x / this.cellWidth);
@@ -172,12 +182,16 @@ class GameView {
       if (!start.fillColor.equals(end.fillColor)) {
         start.fillColor = this.endColor;
 
+        
         if (this.startCircles.includes(start)) {
           const idx = this.startCircles.indexOf(start);
           this.startCircles.splice(idx, 1);
         }
-
+        
         if (!this.endCircles.includes(start)) {
+          if (this.radius >= 5) {
+            this.syms.push(this.sym.place(-100, -100));
+          }
           this.endCircles.push(start);
         }
       }
@@ -187,7 +201,7 @@ class GameView {
   updatePosition(circle) {
     const oldCellX = Math.floor(circle.position.x / this.cellWidth);
     const oldCellY = Math.floor(circle.position.y / this.cellHeight);
-    
+
     const dx = circle.direction.x;
     const dy = circle.direction.y;
     
@@ -229,6 +243,10 @@ class GameView {
     }
   }
 
+  updateSymPosition(idx) {
+    this.syms[idx].position = this.endCircles[idx].position;
+  }
+
   updateDisplay(numStart, numEnd) {
     const startTitle = document.getElementById("start-circles-left-title");
     const numStartLeft = document.getElementById("start-circles-left");
@@ -247,6 +265,10 @@ class GameView {
     if (numEnd < this.numCircles) {
       timer.innerText = ((new Date().getTime() - this.startTime) / 1000).toFixed(1) + " s";
     }
+  }
+
+  getCircles() {
+    return project.activeLayer.children.filter(child => child instanceof Path);
   }
 }
 

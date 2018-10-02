@@ -183,3 +183,7 @@ i {
   justify-content: space-between;
   margin: 25px;
 }
+
+#virus {
+  display: none;
+}
