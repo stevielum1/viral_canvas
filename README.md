@@ -16,7 +16,7 @@ This project is implemented with the following technologies:
 ![viral_canvas](./docs/viral_canvas_2.png)
 
 ### Code Highlights
-The code below is used to create the initial grid system, a hash of 1-dimensional arrays in my case. The coordinate of each cell in the grid is the key and the value is an array of particles whose position is inside that cell. Run in the initialize method, every time the user restarts the simulation, the grid is dynamically sized to fit, on average, 1 particle at a time. The cell width and height are `(2 * radius)` or the diameter of the particles.
+The code below is used to create the initial grid system, a hash of 1D arrays in my case. The coordinate of each cell in the grid is the key and the value is an array of particles whose position is inside that cell. Run in the initialize method, every time the user restarts the simulation, the grid is dynamically sized to fit, on average, 1 particle at a time. The cell width and height are `(2 * radius)` or the diameter of the particles.
 ```javascript
 // js/game_view.js
 createCells() {
