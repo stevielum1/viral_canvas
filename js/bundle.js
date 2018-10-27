@@ -180,7 +180,7 @@ const bindControls = () => {
     };
 
     didSettingsChange = false;
-    restart.style.background = "white";
+    restart.style.background = "";
     clearInterval(blinkRestartClearInterval);
 
     gameView.stop();
