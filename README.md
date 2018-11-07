@@ -68,3 +68,5 @@ checkSurroundingCollisions(circle, x, y) {
 Below is an example. Imagine that the blue circle is our current particle. We only need to check its cell and the 8 adjacent cells for collisions. We are guaranteed that collisions will only occur within these 9 cells because we dynamically sized our cells to be the size of our particles.
 
 ![grid](/docs/grid.png)
+
+The tradeoff of having a grid system like this is that we will constantly need to move the circles to the correct cell when the circles move from one cell to another.
